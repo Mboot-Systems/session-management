@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: mboot-session
+Implementation-Version: latest
+Built-By: alinma
+Implementation-Vendor-Id: com.mboot
+Build-Jdk: 1.8.0_241
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/session-manage
+Created-By: Maven Integration for Eclipse
+

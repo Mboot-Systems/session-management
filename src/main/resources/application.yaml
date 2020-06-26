@@ -1,0 +1,99 @@
+server:
+  port: 8080
+  use-forward-headers: true
+  servlet:
+    session:
+      timeout: 86400
+spring:
+  transaction:
+    rollback-on-commit-failure: true
+  #druid
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySql
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/sensboot?characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+    username: ${mysql.username:root}
+    password: ${mysql.password:123456}
+    filters: stat
+    initialSize: 100
+    maxActive: 1000
+    maxOpenPreparedStatements: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    minIdle: 500
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: select 'x'
+  # redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    timeout: 5000
+
+  # thymeleaf
+  thymeleaf:
+    cache: false
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    servlet:
+      content-type: text/html
+
+logging:
+  file: ./logs/log.log
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: error
+application:
+  formatted-version: 1.0.0
+
+user:
+  import:
+    max: 1000
+
+
+
+
+# mybatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+
+
+
+db1:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/sensboot?characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+  username: root
+  password: 123456
+  initialSize: 5
+  minIdle: 5
+  maxActive: 50
+
+db2:
+  driverClassName: org.postgresql.Driver
+  url: jdbc:postgresql://127.0.0.1:3306/sensboot
+  username: root
+  password: 123456
+  platform: postgres
+  initialSize: 5
+  minIdle: 5
+  maxActive: 50
+
